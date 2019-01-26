@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_26_100832) do
+ActiveRecord::Schema.define(version: 2019_01_26_101646) do
 
   create_table "frames", force: :cascade do |t|
     t.boolean "last_frame", default: false
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 2019_01_26_100832) do
     t.integer "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "frame_id"
+    t.index ["frame_id"], name: "index_tries_on_frame_id"
   end
 
 end
