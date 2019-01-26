@@ -10,11 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_26_101646) do
+ActiveRecord::Schema.define(version: 2019_01_26_135353) do
 
   create_table "frames", force: :cascade do |t|
     t.boolean "last_frame", default: false
     t.integer "type_frame", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "lines", force: :cascade do |t|
+    t.integer "calculate_score"
+    t.string "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

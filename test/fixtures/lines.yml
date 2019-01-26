@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  calculate_score: 1
+  score: MyString
+
+two:
+  calculate_score: 1
+  score: MyString
