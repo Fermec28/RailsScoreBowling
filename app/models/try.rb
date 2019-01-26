@@ -13,7 +13,9 @@ class Try < ApplicationRecord
     end
 
     def set_spare
-        if self.frame.tries.count==2 &&  (self.frame.tries.first.value + self.frame.tries.second.value == 10)
+        first_value = self.frame.tries.first.value ? self.frame.tries.first.value : 0
+        second_value=  self.frame.tries.second ? self.frame.tries.second.value : 0
+        if self.frame.tries.count==2 &&  (first_value + second_value == 10)
             self.frame.update(type_frame: "spare")
         end
     end

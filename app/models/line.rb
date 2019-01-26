@@ -8,13 +8,18 @@ class Line < ApplicationRecord
     def populate_frames(array)
         self.frames.each do |frame|
             while (frame.can_make_try? && !array.empty?)
-                p '*'*50
-                p array
                 frame.make_try(array.shift)
             end
         end
     end
 
+    def to_calculate_score
+        self.simple_score
+    end
+
+    def simple_score
+        self.frames.inject(0){|sum,frame| sum + frame.sum_tries }
+    end
     private
     def initialize_frames
         10.times do |n|
@@ -23,4 +28,6 @@ class Line < ApplicationRecord
         end
 
     end
+
+    
 end

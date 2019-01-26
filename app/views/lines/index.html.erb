@@ -1,0 +1,14 @@
+<h1>Bowling Score</h1>
+<ul>
+    <%@lines.each do |line|%>
+        <li> 
+            <div>Line: <%= line.score%></div>
+            <div>Score: <%= line.calculate_score%></div>
+        </li>
+    <% end %>
+
+    <%= form_for @line do |f|%>
+    <%= f.text_field :score %>
+    <%= f.submit%>
+    <%end%>
+</ul>
