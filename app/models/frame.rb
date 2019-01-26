@@ -1,5 +1,6 @@
 class Frame < ApplicationRecord    
     has_many :tries
+    belongs_to :line
     enum type_frame: [ :normal, :strike,:spare ]    
     
     
@@ -15,14 +16,14 @@ class Frame < ApplicationRecord
         if self.can_make_try?
             
             if self.last_frame
-                if  (self.sum_triess % NUM_PINES == 0 && NUM_PINES - value >= 0)
-                    self.tries.new(value:value) 
-                elsif (self.tries.length==1 && NUM_PINES- (self.sum_triess+value) >= 0)
-                    self.tries.new(value:value) 
+                if  (self.sum_tries % NUM_PINES == 0 && NUM_PINES - value >= 0)
+                    self.tries.create(value:value) 
+                elsif (self.tries.length==1 && NUM_PINES- (self.sum_tries+value) >= 0)
+                    self.tries.create(value:value) 
                 end
             else 
-                if (NUM_PINES- (self.sum_triess+value) >= 0 )
-                    self.tries.new(value:value)
+                if (NUM_PINES- (self.sum_tries+value) >= 0 )
+                    self.tries.create(value:value)
                 end
             end
         end
