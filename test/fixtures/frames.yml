@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  last_frame: false
+  type: 1
+
+two:
+  last_frame: false
+  type: 1

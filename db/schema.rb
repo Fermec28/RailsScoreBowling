@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_26_100004) do
+ActiveRecord::Schema.define(version: 2019_01_26_100832) do
+
+  create_table "frames", force: :cascade do |t|
+    t.boolean "last_frame", default: false
+    t.integer "type_frame", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "tries", force: :cascade do |t|
     t.integer "value"
