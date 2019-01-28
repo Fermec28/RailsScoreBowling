@@ -1,6 +1,7 @@
 class Line < ApplicationRecord
     extend CalculateScore
     has_many :frames
+    has_many :tries, through: :frames
     after_create :initialize_frames
 
     
@@ -17,8 +18,8 @@ class Line < ApplicationRecord
         self.simple_score
     end
 
-    def simple_score
-        self.frames.inject(0){|sum,frame| sum + frame.sum_tries }
+    def simple_score        
+        self.tries.sum(:value)
     end
     private
     def initialize_frames

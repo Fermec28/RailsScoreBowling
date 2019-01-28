@@ -8,7 +8,7 @@ module CalculateScore
             when '-'
                 0
             when '/'
-                10-(string.split('')[index-1].to_i)
+                10-(str.split('')[index-1].to_i)
             else 
                 element.to_i
             end  
